@@ -23,3 +23,7 @@ class TestGame(TestCase):
     def test_vertical_win(self):
         self.game.game_board = [["X", "0", "0"], ["X", "0", "0"], ["X", "0", "0"]]
         self.assertEqual(self.game.winner(), "Player X wins!")
+
+    def test_diagonal_win(self):
+        self.game.game_board = [["X", "0", "0"], ["0", "X", "0"], ["0", "0", "X"]]
+        self.assertEqual(self.game.winner(), "Player X wins!")

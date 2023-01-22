@@ -7,6 +7,8 @@ class Game:
             return self._horizontal_win()
         elif self._vertical_win():
             return self._vertical_win()
+        elif self._digonal_win():
+            return self._digonal_win()
 
         return 0
 
@@ -32,5 +34,23 @@ class Game:
                 and self.game_board[0][col] != "0"
             ):
                 return f"Player {self.game_board[0][col]} wins!"
+
+        return 0
+
+    def _digonal_win(self):
+        # digonal one
+        if (
+            self.game_board[0][0] == self.game_board[1][1]
+            and self.game_board[1][1] == self.game_board[2][2]
+            and self.game_board[0][0] != "0"
+        ):
+            return f"Player {self.game_board[0][0]} wins!"
+        # digonal two
+        elif (
+            self.game_board[2][0] == self.game_board[1][1]
+            and self.game_board[1][1] == self.game_board[2][2]
+            and self.game_board[0][0] != "0"
+        ):
+            return f"Player {self.game_board[0][0]} wins!"
 
         return 0
