@@ -13,9 +13,13 @@ class TestGame(TestCase):
     def test_player_turn(self):
         self.game.takeTurn("X", [0, 0])
         self.assertEqual(
-            self.game_board, [["X", "0", "0"], ["0", "0", "0"], ["0", "0", "0"]]
+            self.game.game_board, [["X", "0", "0"], ["0", "0", "0"], ["0", "0", "0"]]
         )
 
     def test_horizontal_win(self):
         self.game.game_board = [["X", "X", "X"], ["0", "0", "0"], ["0", "0", "0"]]
+        self.assertEqual(self.game.winner(), "Player X wins!")
+
+    def test_vertical_win(self):
+        self.game.game_board = [["X", "0", "0"], ["X", "0", "0"], ["X", "0", "0"]]
         self.assertEqual(self.game.winner(), "Player X wins!")
