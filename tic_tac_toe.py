@@ -9,6 +9,8 @@ class Game:
             return self._vertical_win()
         elif self._digonal_win():
             return self._digonal_win()
+        elif self._is_game_over():
+            return self._is_game_over()
 
         return 0
 
@@ -54,3 +56,11 @@ class Game:
             return f"Player {self.game_board[0][0]} wins!"
 
         return 0
+    
+    def _is_game_over(self):
+        for row in range(len(self.game_board[0])):
+            for col in range(len(self.game_board)):
+                if self.game_board[row][col] == "0":
+                    return 0
+        
+        return "Game Over!"
